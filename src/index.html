@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Study Buddy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+          
+        <img id="profile-icon" src="https://via.placeholder.com/50" alt="Profil" title="Pengaturan Profil">
+
+        <div class="logo">
+            <h1> Study Buddy </h1>
+        </div>
+        
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#" id="home" onclick="showSection('home-section')">Home</a></li>
+                <li><a href="#" id="news" onclick="showSection('news-section')">News</a></li>
+                <li class="dropdown">
+                    <a href="#" id="informasi" class="dropdown-toggle">
+                        Inform <span class="arrow">&#x25BC;</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" id="about-web" onclick="showSection('about-web-section')">About Website</a></li>
+                        <li><a href="#" id="sb" onclick="showSection('sb-section')">Creator's Profile</a></li>
+                        <li><a href="#" id="journal" onclick="coming()('journal-section')">Journal</a></li>
+                        <li><a href="#" id="games" onclick="coming()('games-section')">Games</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" id="informasi" class="dropdown-toggle">
+                        Friends <span class="arrow">&#x25BC;</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" id="search" onclick="showSection('search-section')">Search Friends</a></li>
+                        <li><a href="#" id="list" onclick="showSection('list-section')">Friend List</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" id="lead" onclick="showSection('lead-section')">Leaderboard</a></li>
+            </ul>
+        </nav>    
+    </header>
+
+    <!-- Halaman Beranda -->
+    <main>
+    <div id="home-section" class="section active">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Will be Fully Present on a Date</h1>
+                <p>To Be Announcement</p>
+                <a href="#" class="btn" onclick="regist()">Pre-Regist</a>
+                <ul class="nav-links">
+                <div class="download-options">
+                    <div class="gambar-item">
+                        <li><a href="#" id="friend" onclick="showSection('friend-section')"><img src="f1.jpg" alt="f1"></a></li>
+                        <div class="caption" style="text-align: center;">With Public</div>
+                    </div>
+                    <div class="gambar-item">
+                        <li><a href="#" id="ai" onclick="showSection('ai-section')"><img src="f2.jpg" alt="f2"></a></li>
+                        <div class="caption" style="text-align: center;">With AI</div>
+                    </div>
+                    <div class="gambar-item">
+                        <li><a href="#" id="quest" onclick="showSection('quest-section')"><img src="f3.jpg" alt="f3"></a></li>
+                        <div class="caption" style="text-align: center;">Daily Quest</div>
+                    </div>
+                    <div class="gambar-item">
+                        <li><a href="#" id="join-room" onclick="joinRoom()"><img src="sb2.jpg" alt="f4"></a></li>                          
+                        <div class="caption" style="text-align: center;">COMING SOON</div>
+                    </div>
+                    <div class="gambar-item">
+                        <li><a href="#" id="join-room" onclick="joinRoom()"><img src="sb2.jpg" alt="f5"></a></li>
+                        <div class="caption" style="text-align: center;">COMING SOON</div>
+                    </div>
+                    <div class="gambar-item">
+                        <li><a href="#" id="join-room" onclick="joinRoom()"><img src="sb2.jpg" alt="f6"></a></li>
+                        <div class="caption" style="text-align: center;">COMING SOON</div>
+                    </div>
+                </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Halaman Fitur With Friends -->
+    <div id="friend-section" class="section" class="bodySpin">
+        <div class="containerspin">
+            <h1>Find Your Friends</h1>
+            <p class="status">Searching for active Users...</p>
+            <div class="spinner"></div>
+            <div class="result"></div>
+            <button id="searchBtn">Search</button>
+        </div>
+    </div>
+
+    <!-- Halaman Fitur With AI -->
+    <div id="ai-section" class="section" class="bodyai">
+        <div class="containerai">
+            <!-- Voice Interaction -->
+            <div class="card">
+                <h2>AI Voice Interaction</h2>
+                <button onclick="startVoiceInteraction()">Talk to AI</button>
+                <div id="voiceOutput" class="output">Your AI voice responses will appear here...</div>
+            </div>
+    
+            <!-- AI Quiz -->
+            <div class="card">
+                <h2>Interactive Quiz</h2>
+                <button onclick="startQuiz()">Start Quiz</button>
+                <div id="quizOutput" class="output">Quiz results will appear here...</div>
+            </div>
+    
+            <!-- ChatGPT-like Interaction -->
+            <div class="card">
+                <h2>Chat with AI</h2>
+                <textarea id="questionInput" placeholder="Type your question here..."></textarea>
+                <button onclick="askAI()">Ask AI</button>
+                <div id="aiOutput" class="output">AI's response will appear here...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Halaman Fitur quest -->
+    <div id="quest-section" class="section" class="bodyreward">
+        <div class="containerreward">
+            <h1>Daily Quests</h1>
+            <div id="quests">
+                <!-- Quests will be dynamically added here -->
+            </div>
+            <button id="completeButton">Complete All</button>
+            <div class="timer" id="timer"></div>
+    
+            <div class="reward-container">
+                <h2>Rewards</h2>
+                <div class="reward-list">
+                    <div class="reward-item">💎</div>
+                    <div class="reward-item">✨</div>
+                    <div class="reward-item">🏆</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Halaman Berita -->
+    <div id="news-section" class="section">
+            <h2>News Report</h2>
+            <div class="news-cards">
+                <div class="news-card">
+                    <img src="b1.jpg" alt="News 1">
+                    <div class="content">
+                        <h3>Para Guru di Berbagai Daerah Gunakan AI untuk Asah Nalar Kritis Siswa"</h3>
+                        <p>Berita ini mengangkat bagaimana para guru di berbagai daerah di Indonesia memanfaatkan teknologi AI untuk melatih kemampuan berpikir dan bernalar kritis pada siswa.</p>
+                        <div class="date">22/12/2024</div>
+                        <div class="tag">Buletin</div>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <img src="b2.jpg" alt="News 2">
+                    <div class="content">
+                        <h3>Event Kuis Interaktif Berbasis AI</h3>
+                        <p>Event ini memberikan pengalaman seru dan edukatif dengan memadukan kompetisi dan teknologi AI dalam pembelajaran.</p>
+                        <div class="date">25/01/2025</div>
+                        <div class="tag">Event</div>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <img src="b3.jpeg" alt="News 3">
+                    <div class="content">
+                        <h3>Peluncuran Aplikasi Study Buddy</h3>
+                        <p>Study Buddy, aplikasi pembelajaran berbasis AI, akan segera diluncurkan untuk membantu pelajar belajar lebih efektif dan interaktif dengan menggunakan teknologi canggih.</p>
+                        <div class="date">To Be Announcement</div>
+                        <div class="tag">Buletin</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Halaman Informasi -->
+        <div id="about-web-section" class="section" class="bodyabout">
+            <div class="headerabout">
+                <h1>Information From Website Study Buddy</h1>
+            </div>
+        
+            <div class="contentabout">
+                <h2>About Study Buddy</h2>
+                <p>
+                    Study Buddy is a revolutionary platform designed to enhance your learning experience. Whether you are a student striving to excel in academics or a professional looking to acquire new skills, Study Buddy is your go-to partner for all your educational needs.
+                </p>
+                <p>
+                    Our platform offers a wide range of features tailored to support your learning journey, including:
+                </p>
+                <ul>
+                    <li><b>Collaborative Learning:</b> Connect with peers and experts to study together in virtual rooms.</li>
+                    <li><b>Progress Tracking:</b> Monitor your achievements and set goals to stay motivated.</li>
+                    <li><b>Interactive Tools:</b> Utilize flashcards, quizzes, and personalized study plans to maximize productivity.</li>
+                    <li><b>Daily Reminders:</b> Stay on track with scheduled reminders for your tasks and study sessions.</li>
+                </ul>
+                <p>
+                    At Study Buddy, we believe in making learning accessible, enjoyable, and effective for everyone. Join our community and take the next step toward achieving your educational dreams!
+                </p>
+            </div>
+        </div>
+        <div id="sb-section" class="section">
+            <div class="containercreator">
+                <div class="sidebarcreator">
+                    <h2>Creators</h2>
+                    <img src="alya.jpg" alt="Creator 1" onclick="showProfile(0)">
+                    <img src="annisa.jpg" alt="Creator 2" onclick="showProfile(1)">
+                    <img src="dayat.jpg" alt="Creator 3" onclick="showProfile(2)">
+                    <img src="ade.jpg" alt="Creator 4" onclick="showProfile(3)">
+                    <img src="fauzil.jpg" alt="Creator 5" onclick="showProfile(4)">
+                    <img src="zaidan.jpg" alt="Creator 6" onclick="showProfile(5)">
+                </div>
+                <div class="profile-displaycreator" id="profileDisplay">
+                    <img src="0.png" alt="Profile Picture" id="profilePic">
+                    <h2 id="profileName">Creator</h2>
+                    <p id="profileBio">Bio</p>
+                    <div class="social-links" id="socialLinks">
+                        <a href="#" target="_blank" id="twitterLink">🐦</a>
+                        <a href="#" target="_blank" id="linkedinLink">🔗</a>
+                        <a href="#" target="_blank" id="githubLink">🐙</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="journal" class="section">
+            <h1>Journal</h1>
+            <p>Catatan jurnal terkait Study Buddy.</p>
+        </div>
+        <div id="games" class="section">
+            <h1>Games</h1>
+            <p>Hiburan yang ada di website ini.</p>
+        </div>
+
+        <!-- Halaman Teman -->
+        <div id="search-section" class="section" class="bodysearch">
+            <div class="containersearch">
+                <div class="header">
+                    <h1>Friend Search</h1>
+                    <button onclick="refreshRecommendations()">Refresh</button>
+                </div>
+                <div class="search-bar">
+                    <input type="text" id="search" placeholder="Search by name or ID">
+                    <button onclick="searchFriend()">Search</button>
+                </div>
+                <ul class="friend-list" id="friendList">
+                    <li class="friend-item">
+                        <img src="pp7.png" alt="Avatar">
+                        <div class="friend-details">
+                            <strong>Rama</strong>
+                            <span>Game - Musik</span>
+                            <span style="color: green;">Online</span>
+                        </div>
+                        <div class="friend-actions">
+                            <button onclick="followFriend(this, 'Rama', 'Game - Musik', 'Online')">Follow</button>
+                        </div>
+                    </li>
+                    <li class="friend-item">
+                        <img src="pp2.png" alt="Avatar">
+                        <div class="friend-details">
+                            <strong>Fauzil</strong>
+                            <span>Game - Islami</span>
+                            <span style="color: green;">Online</span>
+                        </div>
+                        <div class="friend-actions">
+                            <button onclick="followFriend(this, 'Fauzil', 'Game - Islami', 'Online')">Follow</button>
+                        </div>
+                    </li>
+                    <li class="friend-item">
+                        <img src="pp1.png" alt="Avatar">
+                        <div class="friend-details">
+                            <strong>Alya</strong>
+                            <span>Film - Pecinta Kucing</span>
+                            <span style="color: green;">Online</span>
+                        </div>
+                        <div class="friend-actions">
+                            <button onclick="followFriend(this, 'Alya', 'Film - Pecinta Kucing', 'Online')">Follow</button>
+                        </div>
+                    </li>
+                    <li class="friend-item">
+                        <img src="pp3.png" alt="Avatar">
+                        <div class="friend-details">
+                            <strong>Hidayatullah</strong>
+                            <span>Anime - Islami</span>
+                            <span style="color: green;">Online</span>
+                        </div>
+                        <div class="friend-actions">
+                            <button onclick="followFriend(this, 'Hidayatullah', 'Anime - Islami', 'Online')">Follow</button>
+                        </div>
+                    </li>
+                    <li class="friend-item">
+                        <img src="pp8.png" alt="Avatar">
+                        <div class="friend-details">
+                            <strong>Astro</strong>
+                            <span>Adventure - Math</span>
+                            <span style="color: green;">Online</span>
+                        </div>
+                        <div class="friend-actions">
+                            <button onclick="followFriend(this, 'Astro', 'Adventure - Math', 'Online')">Follow</button>
+                        </div>
+                    </li>
+                    <li class="friend-item">
+                        <img src="pp5.png" alt="Avatar">
+                        <div class="friend-details">
+                            <strong>Lunar</strong>
+                            <span>Killer</span>
+                            <span style="color: green;">Online</span>
+                        </div>
+                        <div class="friend-actions">
+                            <button onclick="followFriend(this, 'Lunar', 'Killer', 'Online')">Follow</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="list-section" class="section" class="bodylist" class="header" class="containersearch">
+            <h2>Friend List</h2>
+        <ul class="followed-list" id="followedList">
+            <!-- Followed friends will appear here -->
+        </ul>
+        </div>
+
+        <!-- Leaderboard -->
+        <div id="lead-section" class="section" class="bodylead">
+            <div class="leaderboard-container">
+                <div class="leaderboard">
+                    <h1>Elite Rankings</h1>
+                    <ul id="leaderboard-list">
+                        <!-- Leaderboard items will be injected here -->
+                    </ul>
+                </div>
+                <div class="glow-bg"></div>
+            </div>
+        </div>
+
+        <div class="chatbox" id="chatBox">
+            <div class="chatbox">
+                <div class="chatbox-header">Chatbot</div>
+                <div class="chatbox-body" id="chatbox-body"></div>
+                <div class="chatbox-footer">
+                    <input type="text" id="userInput" placeholder="Ketik pesan Anda...">
+                    <button onclick="sendMessage()">Kirim</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Halaman Profil -->
+        <div id="profile-sidebar">
+            <button id="close-profile">&times;</button>
+            <h2>Setting Profil</h2>
+            <form id="profile-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Masukkan nama Anda">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Masukkan email Anda">
+                </div>
+                <div class="form-group">
+                    <label for="bio">Bio</label>
+                    <textarea id="bio" name="bio" placeholder="Tulis bio singkat Anda"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="profile-picture">Foto Profil</label>
+                    <input type="file" id="profile-picture" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <label for="bg-color">Backgorund Color</label>
+                    <input type="color" id="bg-color" value="#f5f5f5">
+                </div>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    
+        <div id="crop-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2>Crop Foto Profil</h2>
+                <div class="crop-container">
+                    <img id="image-to-crop" src="">
+                </div>
+                <button id="crop-btn">Crop & Save</button>
+            </div>
+        </div>
+        </main>
+    
+        <footer id="main-footer">
+            <p>&copy; 2024 Study Buddy. Semua Hak Dilindungi.</p>
+        </footer>
+
+</body>
+</html>
